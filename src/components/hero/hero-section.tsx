@@ -1,95 +1,11 @@
-// import { useTheme } from '@/hook/use-theme';
-// import Image from 'next/image';
-// import Link from 'next/link';
-// import React from 'react'
-// import { BiSearch } from 'react-icons/bi';
-// import SearchInput from '../global/search-input';
-
-// type Props = {}
-
-// const HeroSection = (props: Props) => {
-//     // import theme 
-//     const { theme } = useTheme();
-
-
-//     return (
-//         <div className='w-full flex items-center gap-3 justify-between md:mt-10 2xl:p-10 2xl:mt-10 xl:p-5 xl:mt-2 '>
-//             <div className='bg-red-400 w-1/2 h-1/1 flex items-center justify-center '>
-//                 <div className='hero_animation mt-0 h-[600px] w-[600px] flex  items-center justify-center z-10 rounded-full border-none p-5 top-0 bg-gray-800 m-10'>
-//                     <Image
-//                         src={require('../../../public/assets/banner-img-1.png')}
-//                         width={500}
-//                         height={500}
-//                         alt='banner image'
-//                         className='object-contain lgx:max-w-[90%] w-[90%] xl:max-w-[85%] h-auto z-[10]'
-//                     />
-//                 </div>
-//             </div>
-
-//             <div>
-//                 <div className='bg-green-600 w-full  flex flex-col items-center justify-center  xl:gap-10 2xl:gap-10 2xl:mt-10 2xl:p-10 '>
-//                     <h2 className={`${theme === 'dark' ? 'text-white' : 'text-[#000000c7]'} w-full p-3  text-[30px] lg:text-[70px] font-Josephin lg:leading-[75px]  text-center`}>
-//                         improve Your Online Learning Experience and Teaching Better instantly
-//                     </h2>
-//                     <p className={`${theme === 'dark' ? 'text-[#edfff4]' : 'text-[#000000ac]'} w-full  font-Josephin font-[600] text-[18px] xl:!w-[75%] lg:!w-[78%]`}>
-//                         We have 40k+ Online courses & 500K+ Online registered students. Find
-//                         your desired Courses from them.
-//                     </p>
-
-//                     <SearchInput />
-//                     <br />
-//                     <br />
-//                     <div className='xl:w-[55%] 1100px:w-[78%] w-[90%] flex items-center'>
-//                         <Image
-//                             src={require('../../../public/assets/transform-img.png')}
-//                             alt='client one'
-//                             className='rounded-full'
-//                             width={50}
-//                             height={50}
-//                         />
-//                         <Image
-//                             src={require('../../../public/assets/business-img.png')}
-//                             alt='client one'
-//                             className='rounded-full'
-//                             width={50}
-//                             height={50}
-//                         />
-//                         <Image
-//                             src={require('../../../public/assets/teaching-img.png')}
-//                             alt='client one'
-//                             className='rounded-full'
-//                             width={50}
-//                             height={50}
-//                         />
-//                         <p className='font-Josephin dark:text-[#edfff4] text-[#000000b3] lg:pl-3 text-[18px] font-[600]'>
-//                             500k+ People already trusted us.
-//                             <Link href='/courses' className='dark:text-[#46e256] text-[crimson]' >
-//                                 View Courses
-//                             </Link>
-//                         </p>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default HeroSection;
-
-import { useTheme } from 'next-themes';
-// import { useTheme } from '@/hook/use-theme';
-
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 import SearchInput from '../global/search-input';
 import TrustedUsers from './trust-users';
 
 const HeroSection = () => {
     // Import theme
-    const { theme } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -151,7 +67,7 @@ const HeroSection = () => {
                         className="w-[500px] h-[500px] p-3 flex items-center justify-center"
                     >
                         <Image
-                            src={require('../../../public/assets/banner-img-1.png')}
+                            src={'/assets/banner-img-1.png'}
                             width={500}
                             height={500}
                             alt="banner image"

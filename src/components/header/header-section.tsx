@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef, Dispatch, SetStateAction } from 're
 import NavItem from '../nav-item';
 import ThemeSwitcher from '../theme-switcher';
 import { useTheme } from 'next-themes';
-import { HiOutlineMenuAlt3, HiOutlineUserCircle } from 'react-icons/hi';
+import { HiOutlineUserCircle } from 'react-icons/hi';
 import Mobilesheet from './mobile-sheet';
 
 type Props = {
@@ -25,7 +25,7 @@ const Header = ({
     // Track if header should be in "scrolled" state
     const [isScrolled, setIsScrolled] = useState(false);
     const [openSideBar, setOpenSideBar] = useState(false);
-    const { theme, setTheme } = useTheme();
+    const { theme } = useTheme();
 
     // Determine if we're in dark mode for styling
     const isDarkMode = theme === 'dark';
@@ -53,13 +53,8 @@ const Header = ({
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleClose = (e: any) => {
-        if (e.target.id === 'screen')
-            setOpenSideBar(false);
-    }
-
     // Define header background styles
-    const headerBackground = isDarkMode
+    const headerBackground: string = isDarkMode
         ? isScrolled
             ? 'bg-gradient-to-b from-gray-900/95 to-black/95 backdrop-blur-sm border-b border-gray-800/50 shadow-lg'
             : 'bg-transparent border-b border-gray-800/30 '
@@ -68,7 +63,7 @@ const Header = ({
             : 'bg-transparent border-b border-gray-200/50 text-white';
 
     // Define text color based on theme
-    const textColor = isDarkMode ? 'text-white' : 'text-black';
+    const textColor: string = isDarkMode ? 'text-white' : 'text-black';
 
     return (
         <div className="w-full relative" >

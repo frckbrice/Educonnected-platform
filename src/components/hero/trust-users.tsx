@@ -6,21 +6,21 @@ const TrustedUsers = () => {
     const trustedUsers = [
         {
             id: 1,
-            src: require('../../../public/assets/transform-img.png'),
+            src: '/assets/transform-img.png',
             alt: "Sarah Johnson - Software Engineer",
             name: "Sarah J.",
             role: "Software Engineer"
         },
         {
             id: 2,
-            src: require('../../../public/assets/business-img.png'),
+            src: '/assets/business-img.png',
             alt: "Michael Chen - Business Analyst",
             name: "Michael C.",
             role: "Business Analyst"
         },
         {
             id: 3,
-            src: require('../../../public/assets/teaching-img.png'),
+            src: '/assets/teaching-img.png', // Fixed: Added leading slash
             alt: "Emily Davis - Teacher",
             name: "Emily D.",
             role: "Educator"
