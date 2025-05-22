@@ -8,6 +8,9 @@ import ThemeSwitcher from '../theme-switcher';
 import { useTheme } from 'next-themes';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import Mobilesheet from './mobile-sheet';
+import CustomModal from '../global/custom-modal';
+import Login from '../auth';
+import { redirect } from 'next/navigation';
 
 type Props = {
     open: boolean;
@@ -21,6 +24,8 @@ const Header = ({
     activeItem,
     open,
     setOpen,
+    route,
+    setRoute,
 }: Props) => {
     // Track if header should be in "scrolled" state
     const [isScrolled, setIsScrolled] = useState(false);
@@ -65,6 +70,9 @@ const Header = ({
     // Define text color based on theme
     const textColor: string = isDarkMode ? 'text-white' : 'text-black';
 
+    console.log('route: ', route);
+    console.log('open: ', open);
+
     return (
         <div className="w-full relative" >
             <div className={`
@@ -106,7 +114,7 @@ const Header = ({
                             <HiOutlineUserCircle
                                 size={25}
                                 className={`hidden sm:block cursor-pointer ${textColor} transition-colors duration-300`}
-                                onClick={() => setOpen(!open)}
+                                onClick={() => setOpen(true)}
                             />
                         </div>
                     </div>
@@ -115,6 +123,30 @@ const Header = ({
 
             {/* Add a placeholder div when header is fixed to prevent content jump */}
             {isScrolled && <div className="h-[80px]"></div>}
+            {
+                route === 'signup' && (
+                    <>
+                    </>
+                )
+            }
+            {
+                route === 'login' && (
+                    <>
+                        {
+                            open && (
+                                // <CustomModal
+                                //     open={open}
+                                //     setopen={setOpen}
+                                //     activeItem={activeItem}
+                                //     setroute={setRoute}
+                                //     component={Login}
+                                // />
+                                redirect('/auth/login')
+                            )
+                        }
+                    </>
+                )
+            }
         </div>
     );
 }

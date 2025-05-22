@@ -6,7 +6,7 @@ import { BiMoon, BiSun } from 'react-icons/bi';
 
 const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false);
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
 
     useEffect(() => {
         setMounted(true);
@@ -16,9 +16,6 @@ const ThemeSwitcher = () => {
 
     // Use resolvedTheme to get the actual theme being applied
     const isDark = resolvedTheme === 'dark';
-
-    console.log('Current theme:', theme);
-    console.log('Resolved theme:', resolvedTheme);
 
     return (
         <div className="flex items-center justify-center mx-4">
@@ -40,7 +37,6 @@ const ThemeSwitcher = () => {
     );
 };
 
-// Default export to match your import
 export default ThemeSwitcher;
 
 // 'use client';
